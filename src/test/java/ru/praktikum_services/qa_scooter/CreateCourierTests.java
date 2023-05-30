@@ -1,19 +1,20 @@
 package ru.praktikum_services.qa_scooter;
 
-import io.restassured.RestAssured;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
 
 import static org.hamcrest.Matchers.equalTo;
 
 public class CreateCourierTests {
 
     private Courier courier;
-
+    Order clientOrder = new Order();
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        clientOrder.setUp();
         this.courier = CourierHelper.getRandom();
     }
 

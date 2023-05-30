@@ -20,7 +20,7 @@ public class CourierHelper {
                 .and()
                 .body(courier)
                 .when()
-                .post("/api/v1/courier");
+                .post(Constants.CREATE_COURIER_ENDPOINT);
     }
 
     public static int loginAndGetId(Courier courier) {
@@ -37,7 +37,7 @@ public class CourierHelper {
                 .and()
                 .body(courier)
                 .when()
-                .post("/api/v1/courier/login");
+                .post(Constants.LOGIN_COURIER_ENDPOINT);
     }
 
 
@@ -53,7 +53,8 @@ public class CourierHelper {
         return given()
                 .header("Content-type", "application/json")
                 .when()
-                .delete("/api/v1/courier/{id}", id);
+                .delete(Constants.DELETE_COURIER_ENDPOINT, id);
+
     }
 
 }

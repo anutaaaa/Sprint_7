@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +12,7 @@ import static org.hamcrest.Matchers.notNullValue;
 public class ParametrizedCreateOrderTest {
 
     private final Order order;
+    Order clientOrder = new Order();
 
     public ParametrizedCreateOrderTest(Order order) {
         this.order = order;
@@ -30,7 +30,7 @@ public class ParametrizedCreateOrderTest {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        clientOrder.setUp();
     }
 
     @Test
@@ -40,7 +40,7 @@ public class ParametrizedCreateOrderTest {
                 .and()
                 .body(order)
                 .when()
-                .post("/api/v1/orders")
+                .post(Constants.CREATE_ORDER_ENDPOINT)
                 .then()
                 .assertThat().body("track", notNullValue())
                 .and()

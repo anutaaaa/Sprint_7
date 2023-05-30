@@ -1,29 +1,24 @@
 package ru.praktikum_services.qa_scooter;
 
-import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import org.hamcrest.Matchers;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.Arrays;
-import java.util.List;
-
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 
-public class GetOrdersTests {
+public class GetOrdersTests{
+
+     Order clientOrder = new Order();
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        clientOrder.setUp();
     }
-
     @Test
     public void getOrders() {
         Response response = given()
-                .get("/api/v1/orders");
+                .get(Constants.CREATE_ORDER_ENDPOINT);
+
 
         response.then().statusCode(200);
 

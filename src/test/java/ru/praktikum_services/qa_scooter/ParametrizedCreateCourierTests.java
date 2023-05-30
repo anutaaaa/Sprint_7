@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-import io.restassured.RestAssured;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,7 +12,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class ParametrizedCreateCourierTests {
 
     private final Courier courier;
-
+    Order clientOrder = new Order();
     public ParametrizedCreateCourierTests(Courier courier) {
         this.courier = courier;
     }
@@ -29,7 +28,7 @@ public class ParametrizedCreateCourierTests {
 
     @Before
     public void setUp() {
-        RestAssured.baseURI = "http://qa-scooter.praktikum-services.ru/";
+        clientOrder.setUp();
     }
 
     @Test
