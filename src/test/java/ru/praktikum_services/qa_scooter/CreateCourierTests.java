@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,13 +7,12 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class CreateCourierTests {
+public class CreateCourierTests extends BaseApi{
 
     private Courier courier;
-    Order clientOrder = new Order();
+
     @Before
-    public void setUp() {
-        clientOrder.setUp();
+    public void generate() {
         this.courier = CourierHelper.getRandom();
     }
 

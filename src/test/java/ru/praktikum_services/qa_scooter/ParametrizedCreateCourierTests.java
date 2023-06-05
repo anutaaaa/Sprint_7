@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,10 +8,9 @@ import org.junit.runners.Parameterized;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(Parameterized.class)
-public class ParametrizedCreateCourierTests {
+public class ParametrizedCreateCourierTests extends BaseApi{
 
     private final Courier courier;
-    Order clientOrder = new Order();
     public ParametrizedCreateCourierTests(Courier courier) {
         this.courier = courier;
     }
@@ -24,11 +22,6 @@ public class ParametrizedCreateCourierTests {
                 new Courier("", RandomHelper.getString(10), RandomHelper.getString(16)),
 
         };
-    }
-
-    @Before
-    public void setUp() {
-        clientOrder.setUp();
     }
 
     @Test

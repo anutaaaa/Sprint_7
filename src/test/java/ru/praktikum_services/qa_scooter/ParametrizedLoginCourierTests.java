@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -8,9 +7,8 @@ import org.junit.runners.Parameterized;
 import static org.hamcrest.Matchers.equalTo;
 
 @RunWith(Parameterized.class)
-public class ParametrizedLoginCourierTests {
+public class ParametrizedLoginCourierTests extends BaseApi{
     private final Courier courier;
-    Order clientOrder = new Order();
     public ParametrizedLoginCourierTests(Courier courier) {
         this.courier = courier;
     }
@@ -23,10 +21,6 @@ public class ParametrizedLoginCourierTests {
     };
 }
 
-    @Before
-    public void setUp() {
-        clientOrder.setUp();
-    }
 
     @Test
     public void loginWithoutAllRequiredValues() {

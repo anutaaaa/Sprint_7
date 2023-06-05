@@ -6,13 +6,11 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.equalTo;
 
-public class LoginCourierTests {
+public class LoginCourierTests extends BaseApi{
 
     private Courier courier;
-    Order clientOrder = new Order();
     @Before
-    public void setUp() {
-        clientOrder.setUp();
+    public void generate() {
         this.courier = CourierHelper.getRandom();
         CourierHelper.create(courier);
     }

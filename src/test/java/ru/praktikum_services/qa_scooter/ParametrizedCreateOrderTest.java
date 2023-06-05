@@ -1,6 +1,5 @@
 package ru.praktikum_services.qa_scooter;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -9,10 +8,9 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
-public class ParametrizedCreateOrderTest {
+public class ParametrizedCreateOrderTest extends BaseApi{
 
     private final Order order;
-    Order clientOrder = new Order();
 
     public ParametrizedCreateOrderTest(Order order) {
         this.order = order;
@@ -26,11 +24,6 @@ public class ParametrizedCreateOrderTest {
                 new Order(RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getInt(), RandomHelper.getFormattedDate(), RandomHelper.getString(10), new Color[]{Color.BLACK}),
                 new Order(RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getString(10), RandomHelper.getInt(), RandomHelper.getFormattedDate(), RandomHelper.getString(10), new Color[]{Color.GREY, Color.BLACK}),
         };
-    }
-
-    @Before
-    public void setUp() {
-        clientOrder.setUp();
     }
 
     @Test

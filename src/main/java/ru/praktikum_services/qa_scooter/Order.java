@@ -1,6 +1,6 @@
 package ru.praktikum_services.qa_scooter;
 
-public class Order extends Constants{
+public class Order{
 
     private String firstName;
 
