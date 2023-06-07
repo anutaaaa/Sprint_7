@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.notNullValue;
 
 @RunWith(Parameterized.class)
@@ -28,12 +27,7 @@ public class ParametrizedCreateOrderTest extends BaseApi{
 
     @Test
     public void createNewOrder() {
-        given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(order)
-                .when()
-                .post(Constants.CREATE_ORDER_ENDPOINT)
+        CourierHelper.createOrder(order)
                 .then()
                 .assertThat().body("track", notNullValue())
                 .and()

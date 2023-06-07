@@ -1,6 +1,7 @@
 package ru.praktikum_services.qa_scooter;
 
 import io.restassured.response.Response;
+import org.hamcrest.Condition;
 
 import static io.restassured.RestAssured.given;
 
@@ -57,4 +58,12 @@ public class CourierHelper {
 
     }
 
+    public static Response createOrder(Order order) {
+        return given()
+                .header("Content-type", "application/json")
+                .and()
+                .body(order)
+                .when()
+                .post(Constants.CREATE_ORDER_ENDPOINT);
+    }
 }
